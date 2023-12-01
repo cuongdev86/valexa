@@ -1,0 +1,56 @@
+1. Clone your script v3 to a subdomain
+
+2. Change the document root for the subdomain to make it point to /public folder of the subdomain directory
+
+3. Create a new database for the subdomain 
+
+4. Import database v3 to the subdomain database (this should copy all your records to the new database)
+
+5. Edit /.env in the subdomain directory and change the database credentials to the new one (of the subdomain)
+Change : DB_USERNAME, DB_PASSWORD, DB_DATABASE and DB_HOST too if the database host depends on the website url
+
+6. Open the subdomain on the address bar (https://subdomain.example.com), if it works continue the next step, otherwise, contact support (contact@codemayer.net)
+
+7. Copy "upgrade_db_3_to_4_export.php" from the new script v4 to your subdomain / public directory
+
+8. Access upgrade_db_3_to_4_export.php from the address bar (https://subdomain.example.com/upgrade_db_3_to_4_export.php)
+
+9. Once the database is updated, you get one of the two messages below :
+
+If "exec" php function is enabled on your server, you'll see "The updated database has been exported to ..." (the path on the message is from where you downlaod the updated database file)
+
+Otherwise you'll see "PHP function exec() is disabled on your server, please try exporting ....", in this case, you need to export the database manually from your server, you can use phpmyadmin or any other db tool you have on your server.
+
+10. Download the updated database
+
+11. Close all opened browser tabs for the subdomain (https://subdomain.example.com and https://subdomain.example.com/upgrade_db_3_to_4_export.php)
+
+12. Change PHP version to 8.0 or greater
+
+13. Clean the subdomain directory and upload / extract the new script v4 into it
+
+14. Access the subdomain on the browser again https://subdomain.example.com
+
+15. Proceed to the installation of script v4
+
+16. Upload the exported database to your subdomain directory
+
+17. In your subdomain directory, move upgrade_db_3_to_4_import.php to /public folder
+
+18. Access the subdomain again on the browser with https://subdomain.example.com/upgrade_db_3_to_4_import.php (this should insert records from database v3 into database v4)
+
+19. Database upgraded, copy "/public/storage" folder of your script v3 to "/public" folder of your subdomain v4
+
+20. Lastly, to fix the document root for the main domain :
+
+Option 1 : Edit your main domain v3 document root to make it pointing to the subdomain root directory (v4)
+
+Option 2 : Rename the subdomain folder (v4) to your main domain folder (v3), you'll need to change the main domain v3 folder name to something else like old-example.com so you rename subdomain.example.com to example.com
+
+Option 3 : contact support contact@codemayer.net
+
+......................
+
+Note : subdomain.example.com and example.com are just examples, use your real subdomain name and domain name.
+
+If you have any trouble with the update, please contact support contact@codemayer.net
